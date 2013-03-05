@@ -1,5 +1,5 @@
 === Toggle wpautop ===
-Contributors: desrosj, linchpin_agency
+Contributors: linchpin_agency, desrosj
 Tags: wpautop, formatting, post content, excerpt, editor
 Requires at least: 3.0
 Tested up to: 3.5.2
