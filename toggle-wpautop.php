@@ -3,7 +3,7 @@
 Plugin Name: Toggle wpautop
 Plugin URI: http://wordpress.org/extend/plugins/toggle-wpautop
 Description: Allows the disabling of wpautop filter on a post by post basis.
-Version: 1.1
+Version: 1.1.1
 Author: Linchpin
 Author URI: http://linchpinagency.com/?utm_source=toggle-wpautop&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
 License: GPLv2
@@ -24,6 +24,7 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 		 */
 		function __construct() {
 			register_activation_hook( __FILE__, array( $this, 'activation' ) );
+			add_action( 'admin_init', array( $this, 'activation' ) ); //This will upgrade users who had version 1.0 since register_activation_hook does not fire on plugin upgrade
 
 			add_action( 'admin_init', array( $this, 'admin_init' ) );
 			add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
@@ -41,26 +42,27 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 		 * @return void
 		 */
 		function activation() {
-			if ( ! $settings = get_option( 'lp_toggle_wpautop_settings' ) ) {
-				$post_types = get_post_types();
+			if ( $settings = get_option( 'lp_toggle_wpautop_settings' ) )
+				return;
 
-				if ( empty( $post_types ) )
-					return;
+			$post_types = get_post_types();
 
-				$default_post_types = array();
+			if ( empty( $post_types ) )
+				return;
 
-				foreach ( $post_types as $post_type ) {
-					$pt = get_post_type_object( $post_type );
+			$default_post_types = array();
 
-					if ( in_array( $post_type, array( 'revision', 'nav_menu_item', 'attachment' ) ) || ! $pt->public )
-						continue;
+			foreach ( $post_types as $post_type ) {
+				$pt = get_post_type_object( $post_type );
 
-					$default_post_types[] = $post_type;
-				}
+				if ( in_array( $post_type, array( 'revision', 'nav_menu_item', 'attachment' ) ) || ! $pt->public )
+					continue;
 
-				if ( ! empty( $default_post_types ) )
-					add_option( 'lp_toggle_wpautop_settings', $default_post_types );
+				$default_post_types[] = $post_type;
 			}
+
+			if ( ! empty( $default_post_types ) )
+				add_option( 'lp_toggle_wpautop_settings', $default_post_types );
 		}
 
 		/**
