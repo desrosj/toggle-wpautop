@@ -1,9 +1,9 @@
-=== Toggle wpautop ===
+=== Disable wpautop ===
 Contributors: linchpin_agency, desrosj
 Tags: wpautop, formatting, post content, excerpt, editor
 Requires at least: 3.0
 Tested up to: 3.5.2
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,7 @@ Also adds a 'wpautop', or 'no-wpautop' class to the post_class filter to help wi
 
 1. Upload the plugin folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Proceed to the Settings->Writing and select which post types should have the option to disable the wpautop filter.
 
 == Frequently Asked Questions ==
 
@@ -33,8 +34,14 @@ Right now, no. wpautop is a great filter, and in most cases you should not need 
 == Screenshots ==
 
 1. The disable wpautop checkbox on post edit screens.
+2. Settings->Writing page with plugin settings.
 
 == Changelog ==
+
+= 1.1 =
+* Adding the ability to choose which post types have the option to disable the wpautop filter on the Settings->Writing page.
+* When activating the plugin for the first time, all post types are set to have the ability to disable the wpautop filter. This can be changed on the Settings->Writing page.
+* Adding an uninstall hook to remove all traces of the plugin.
 
 = 1.0 =
 * Hello world!
