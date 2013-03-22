@@ -1,4 +1,4 @@
-=== Disable wpautop ===
+=== Toggle wpautop ===
 Contributors: linchpin_agency, desrosj
 Tags: wpautop, formatting, post content, excerpt, editor
 Requires at least: 3.0
