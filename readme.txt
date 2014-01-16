@@ -2,7 +2,7 @@
 Contributors: linchpin_agency, desrosj
 Tags: wpautop, formatting, post content, excerpt, editor
 Requires at least: 3.0
-Tested up to: 3.5.2
+Tested up to: 3.8.1
 Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
