@@ -2,8 +2,8 @@
 Contributors: linchpin_agency, desrosj
 Tags: wpautop, formatting, post content, excerpt, editor
 Requires at least: 3.0
-Tested up to: 3.8.1
-Stable tag: 1.1.1
+Tested up to: 4.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,9 @@ Right now, no. wpautop is a great filter, and in most cases you should not need 
 2. Settings->Writing page with plugin settings.
 
 == Changelog ==
+
+= 1.1.2 =
+* Fixing bug that was preventing other settings on the writing page from saving.
 
 = 1.1.1 =
 * Fixing bug where users upgrading from 1.0 would not receive the defaults for settings that were introduced in 1.1.

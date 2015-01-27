@@ -3,7 +3,7 @@
 Plugin Name: Toggle wpautop
 Plugin URI: http://wordpress.org/extend/plugins/toggle-wpautop
 Description: Allows the disabling of wpautop filter on a post by post basis.
-Version: 1.1.1
+Version: 1.1.2
 Author: Linchpin
 Author URI: http://linchpinagency.com/?utm_source=toggle-wpautop&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
 License: GPLv2
@@ -72,7 +72,7 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 		 * @return void
 		 */
 		function admin_init() {
-			register_setting( 'lp_toggle_wpautop_settings', 'lp_toggle_wpautop_settings', array( $this, 'sanitize_settings' ) );
+			register_setting( 'writing', 'lp_toggle_wpautop_settings', array( $this, 'sanitize_settings' ) );
 
 			//add a section for the plugin's settings on the writing page
 			add_settings_section( 'lp_toggle_wpautop_settings_section', 'Toggle wpautop', array( $this, 'settings_section_text' ), 'writing' );
@@ -98,7 +98,6 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 		 */
 		function settings_section_text() {
 			echo "<p>Select which post types have the option to disable the wpautop filter.</p>";
-			settings_fields( 'lp_toggle_wpautop_settings' );
 		}
 
 		/**
