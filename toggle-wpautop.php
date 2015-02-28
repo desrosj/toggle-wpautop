@@ -3,7 +3,7 @@
 Plugin Name: Toggle wpautop
 Plugin URI: http://wordpress.org/extend/plugins/toggle-wpautop
 Description: Allows the disabling of wpautop filter on a post by post basis.
-Version: 1.1.2
+Version: 1.2.0
 Author: Linchpin
 Author URI: http://linchpinagency.com/?utm_source=toggle-wpautop&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
 License: GPLv2
@@ -73,16 +73,22 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 		 */
 		function admin_init() {
 			register_setting( 'writing', 'lp_toggle_wpautop_settings', array( $this, 'sanitize_settings' ) );
+			register_setting( 'writing', 'lp_toggle_wpautop_auto' );
 
 			//add a section for the plugin's settings on the writing page
 			add_settings_section( 'lp_toggle_wpautop_settings_section', 'Toggle wpautop', array( $this, 'settings_section_text' ), 'writing' );
 
 			//For each post type add a settings field, excluding revisions and nav menu items
 			if ( $post_types = get_post_types() ) {
+
+				add_settings_field( 'lp_toggle_wpautop_auto', 'Auto Enable', array( $this,'toggle_wpautop_auto_field' ), 'writing', 'lp_toggle_wpautop_settings_section' );
+
+				$show_private_post_types = apply_filters( 'lp_wpautop_show_private_pt', false );
+
 				foreach ( $post_types as $post_type ) {
 					$pt = get_post_type_object( $post_type );
 
-					if ( in_array( $post_type, array( 'revision', 'nav_menu_item', 'attachment' ) ) || ! $pt->public )
+					if ( in_array( $post_type, array( 'revision', 'nav_menu_item', 'attachment' ) ) || ( ! $show_private_post_types && ! $pt->public ) )
 						continue;
 
 					add_settings_field( 'lp_toggle_wpautop_post_types' . $post_type, $pt->labels->name, array( $this,'toggle_wpautop_field' ), 'writing', 'lp_toggle_wpautop_settings_section', array( 'slug' => $pt->name, 'name' => $pt->labels->name ) );
@@ -98,6 +104,19 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 		 */
 		function settings_section_text() {
 			echo "<p>Select which post types have the option to disable the wpautop filter.</p>";
+		}
+
+		/**
+		 * toggle_wpautop_auto_field function.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		function toggle_wpautop_auto_field() {
+			?>
+			<input type="checkbox" name="lp_toggle_wpautop_auto" id="lp_toggle_wpautop_auto" value="1" <?php checked( get_option( 'lp_toggle_wpautop_auto', 0 ) ); ?> />
+			<span class="description">Disable wpautop on all new posts.</span>
+			<?php
 		}
 
 		/**
@@ -163,9 +182,17 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 			global $post;
 
 			wp_nonce_field( '_lp_wpautop_nonce', '_lp_wpautop_noncename' );
+
+			$screen = get_current_screen();
+			if ( ! empty( $screen->action ) && 'add' == $screen->action && get_option( 'lp_toggle_wpautop_auto', 0 ) ) {
+				$checked = true;
+			} else {
+				$checked = get_post_meta( $post->ID, '_lp_disable_wpautop', true );
+			}
+
 			?>
 			<div class="misc-pub-section lp-wpautop">
-				<span>Disable wpautop:</span> <input type="checkbox" name="_lp_disable_wpautop" id="_lp_disable_wpautop" <?php checked( get_post_meta( $post->ID, '_lp_disable_wpautop', true ) ); ?> /> <span style="float:right; display: block;"><a href="http://codex.wordpress.org/Function_Reference/wpautop" target="_blank">?</a>
+				<span>Disable wpautop:</span> <input type="checkbox" name="_lp_disable_wpautop" id="_lp_disable_wpautop" <?php checked( $checked ); ?> /> <span style="float:right; display: block;"><a href="http://codex.wordpress.org/Function_Reference/wpautop" target="_blank">?</a>
 			</div>
 			<?php
 		}

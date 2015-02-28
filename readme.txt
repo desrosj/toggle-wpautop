@@ -3,7 +3,7 @@ Contributors: linchpin_agency, desrosj
 Tags: wpautop, formatting, post content, excerpt, editor
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.1.2
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,10 @@ Right now, no. wpautop is a great filter, and in most cases you should not need 
 2. Settings->Writing page with plugin settings.
 
 == Changelog ==
+
+= 1.2.0 =
+* Add a setting to disable wpautop automatically on new posts.
+* Add filter (lp_wpautop_show_private_pt) for enabling the plugin on private post types.
 
 = 1.1.2 =
 * Fixing bug that was preventing other settings on the writing page from saving.
