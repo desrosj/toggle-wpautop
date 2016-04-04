@@ -1,0 +1,54 @@
+# Copyright (C) 2016 Linchpin
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: Toggle wpautop 1.2.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/toggle-wpautop\n"
+"POT-Creation-Date: 2016-04-04 02:52:06+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+
+#. Plugin Name of the plugin/theme
+msgid "Toggle wpautop"
+msgstr ""
+
+#: toggle-wpautop.php:91
+msgid "Auto Enable"
+msgstr ""
+
+#: toggle-wpautop.php:116
+msgid "Select which post types have the option to disable the wpautop filter."
+msgstr ""
+
+#: toggle-wpautop.php:130
+msgid "Disable wpautop on all new posts."
+msgstr ""
+
+#: toggle-wpautop.php:211
+msgid "Disable wpautop:"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/extend/plugins/toggle-wpautop"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Allows the disabling of wpautop filter on a Post by Post basis. Toggle can "
+"also be enabled on a Post Type by Post Type basis or globally"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Linchpin"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid ""
+"http://linchpin.agency/wordpress-plugins/toggle-wpautop?utm_source=toggle-"
+"wpautop&utm_medium=plugin-admin-page&utm_campaign=wp-plugin"
+msgstr ""

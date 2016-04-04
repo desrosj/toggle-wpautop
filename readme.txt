@@ -1,9 +1,9 @@
 === Toggle wpautop ===
-Contributors: linchpin_agency, desrosj
-Tags: wpautop, formatting, post content, excerpt, editor
+Contributors: linchpin_agency, desrosj, aware
+Tags: wpautop, formatting, post content, excerpt, editor, custom post types, filters, add_filter
 Requires at least: 3.0
 Tested up to: 4.5
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,14 @@ Right now, no. wpautop is a great filter, and in most cases you should not need 
 2. Settings->Writing page with plugin settings.
 
 == Changelog ==
+
+= 1.2.1 =
+* Added ability for i18n using grunt-wp-i18n
+* Added english default .pot
+* Added minor security hardening so the class file would exit if called directly
+* Updated code formatting to be more inline with WordPress coding standards
+* Updated some method descriptions
+* Updated plugin description to be more... descriptive.
 
 = 1.2.0 =
 * Add a setting to disable wpautop automatically on new posts.
