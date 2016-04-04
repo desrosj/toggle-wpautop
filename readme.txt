@@ -3,7 +3,7 @@ Contributors: linchpin_agency, desrosj, aware
 Tags: wpautop, formatting, post content, excerpt, editor, custom post types, filters, add_filter
 Requires at least: 3.0
 Tested up to: 4.5
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,9 @@ Right now, no. wpautop is a great filter, and in most cases you should not need 
 2. Settings->Writing page with plugin settings.
 
 == Changelog ==
+
+= 1.2.2 =
+* Fixing PHP syntax error.
 
 = 1.2.1 =
 * Added ability for i18n using grunt-wp-i18n

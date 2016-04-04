@@ -1,10 +1,9 @@
 <?php
-
 /**
 Plugin Name: Toggle wpautop
 Plugin URI: http://wordpress.org/extend/plugins/toggle-wpautop
 Description: Allows the disabling of wpautop filter on a Post by Post basis. Toggle can also be enabled on a Post Type by Post Type basis or globally
-Version: 1.2.1
+Version: 1.2.2
 Author: Linchpin
 Author URI: http://linchpin.agency/wordpress-plugins/toggle-wpautop?utm_source=toggle-wpautop&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
 License: GPLv2
@@ -184,7 +183,7 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 			}
 
 			if ( in_array( $post_type, $settings ) ) {
-				add_action( 'post_submitbox_misc_actions', [ $this, 'post_submitbox_misc_actions' ], 5 );
+				add_action( 'post_submitbox_misc_actions', array( $this, 'post_submitbox_misc_actions' ), 5 );
 			}
 		}
 

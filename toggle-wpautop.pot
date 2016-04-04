@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Toggle wpautop 1.2.1\n"
+"Project-Id-Version: Toggle wpautop 1.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/toggle-wpautop\n"
-"POT-Creation-Date: 2016-04-04 02:52:06+00:00\n"
+"POT-Creation-Date: 2016-04-04 13:37:18+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,19 +17,19 @@ msgstr ""
 msgid "Toggle wpautop"
 msgstr ""
 
-#: toggle-wpautop.php:91
+#: toggle-wpautop.php:90
 msgid "Auto Enable"
 msgstr ""
 
-#: toggle-wpautop.php:116
+#: toggle-wpautop.php:115
 msgid "Select which post types have the option to disable the wpautop filter."
 msgstr ""
 
-#: toggle-wpautop.php:130
+#: toggle-wpautop.php:129
 msgid "Disable wpautop on all new posts."
 msgstr ""
 
-#: toggle-wpautop.php:211
+#: toggle-wpautop.php:210
 msgid "Disable wpautop:"
 msgstr ""
 
