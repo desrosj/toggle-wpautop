@@ -1,13 +1,14 @@
 <?php
 /**
-Plugin Name: Toggle wpautop
-Plugin URI: http://wordpress.org/extend/plugins/toggle-wpautop
-Description: Allows the disabling of wpautop filter on a Post by Post basis. Toggle can also be enabled on a Post Type by Post Type basis or globally
-Version: 1.2.2
-Author: Linchpin
-Author URI: http://linchpin.agency/wordpress-plugins/toggle-wpautop?utm_source=toggle-wpautop&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
-License: GPLv2
-*/
+ * Plugin Name: Toggle wpautop
+ * Plugin URI: http://wordpress.org/extend/plugins/toggle-wpautop
+ * Description: Allows the disabling of wpautop filter on a Post by Post basis. Toggle can also be enabled on a Post Type by Post Type basis or globally
+ * Version: 1.2.3
+ * Author: Linchpin
+ * Author URI: http://linchpin.agency/wordpress-plugins/toggle-wpautop?utm_source=toggle-wpautop&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
+ * License: GPLv2
+ * Text Domain: toggle-wpautop
+ */
 
 // Make sure we don't expose any info if called directly.
 if ( ! function_exists( 'add_action' ) ) {
@@ -207,7 +208,7 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 
 			?>
 			<div class="misc-pub-section lp-wpautop">
-				<span><?php esc_html_e( 'Disable wpautop:', 'toggle-wpautop' ); ?></span> <input type="checkbox" name="_lp_disable_wpautop" id="_lp_disable_wpautop" <?php checked( $checked ); ?> /> <span style="float:right; display: block;"><a href="http://codex.wordpress.org/Function_Reference/wpautop" target="_blank">?</a>
+				<span><?php esc_html_e( 'Disable wpautop', 'toggle-wpautop' ); ?>:</span> <input type="checkbox" name="_lp_disable_wpautop" id="_lp_disable_wpautop" <?php checked( $checked ); ?> /> <span style="float:right; display: block;"><a href="http://codex.wordpress.org/Function_Reference/wpautop" target="_blank">?</a>
 			</div>
 			<?php
 		}
