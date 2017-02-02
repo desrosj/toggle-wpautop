@@ -8,6 +8,7 @@
  * Author URI: http://linchpin.agency/wordpress-plugins/toggle-wpautop?utm_source=toggle-wpautop&utm_medium=plugin-admin-page&utm_campaign=wp-plugin
  * License: GPLv2
  * Text Domain: toggle-wpautop
+ * Domain Path: /languages
  */
 
 // Make sure we don't expose any info if called directly.
@@ -27,6 +28,8 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 		 */
 		function __construct() {
 			register_activation_hook( __FILE__, array( $this, 'activation' ) );
+
+			add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 			add_action( 'admin_init', array( $this, 'activation' ) ); // This will upgrade users who had version 1.0 since register_activation_hook does not fire on plugin upgrade.
 
 			add_action( 'admin_init', array( $this, 'admin_init' ) );
@@ -70,6 +73,13 @@ if ( ! class_exists( 'LP_Toggle_wpautop' ) ) {
 			if ( ! empty( $default_post_types ) ) {
 				add_option( 'lp_toggle_wpautop_settings', $default_post_types );
 			}
+		}
+
+		/**
+		 * Load the plugin text domain.
+		 */
+		function plugins_loaded() {
+			load_plugin_textdomain( 'toggle-wpautop', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 		}
 
 		/**
