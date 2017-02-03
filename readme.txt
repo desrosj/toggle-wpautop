@@ -37,6 +37,9 @@ Right now, no. wpautop is a great filter, and in most cases you should not need 
 2. Settings->Writing page with plugin settings.
 
 == Changelog ==
+= 1.2.5 =
+* Fixing an issue where http://translate.wordpress.org did not detect the stable version correctly.
+
 = 1.2.4 =
 * A few additional steps to make the plugin accessible to http://translate.wordpress.org.
 
